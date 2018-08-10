@@ -1,0 +1,4 @@
+FromCurrency,ToCurrency,Rate
+USD,INR,69.14
+USD,EURO,0.88
+INR,EURO,0.013
