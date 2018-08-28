@@ -2,13 +2,15 @@ package com.example.demo.processor;
 
 import com.example.demo.entity.ExchangeRateEntity;
 import com.example.demo.mapper.ExchangeRateMapper;
-import com.example.demo.models.ExchangeRate2;
+import com.example.demo.models.ExchangeRateInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 @Slf4j
-public class ExchangeRateEventProcessor implements ItemProcessor<ExchangeRate2, ExchangeRateEntity> {
+public class ExchangeRateEventProcessor implements ItemProcessor<ExchangeRateInfo, ExchangeRateEntity> {
 
     private ExchangeRateMapper exchangeRateMapper;
 
@@ -18,10 +20,10 @@ public class ExchangeRateEventProcessor implements ItemProcessor<ExchangeRate2, 
     }
 
     @Override
-    public ExchangeRateEntity process(final ExchangeRate2 exchangeRate2) throws Exception {
-        final ExchangeRateEntity exchangeRateEntity = exchangeRateMapper.convertToEntity(exchangeRate2);
+    public ExchangeRateEntity process(final ExchangeRateInfo exchangeRateInfo) {
+        final ExchangeRateEntity exchangeRateEntity = exchangeRateMapper.convertToEntity(exchangeRateInfo);
         //put batch id and kd
-        log.info("Converting (" + exchangeRate2 + ") into (" + exchangeRateEntity + ")");
+        log.info("Converting (" + exchangeRateInfo + ") into (" + exchangeRateEntity + ")");
         return exchangeRateEntity;
     }
 

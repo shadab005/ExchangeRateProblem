@@ -1,25 +1,20 @@
-package com.example.demo.entity;
+package com.example.demo.models;
 
 import com.example.demo.enums.Currency;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+/**
+ * Created By sudhanshu.singh on 8/11/18
+ */
 
 @Getter
 @Setter
-public class ExchangeRateEntity {
-
-    private Long id;
-
-    private String batchId;
+public class ExchangeRateInfo {
 
     private Currency fromCurrency;
 
     private Currency toCurrency;
 
     private Float rate;
-
-    private Date knowledgeDate;
-
 }

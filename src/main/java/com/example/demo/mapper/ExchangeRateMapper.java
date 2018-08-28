@@ -1,7 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.entity.ExchangeRateEntity;
-import com.example.demo.models.ExchangeRate2;
+import com.example.demo.models.ExchangeRateInfo;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,26 +10,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExchangeRateMapper {
 
-    public ExchangeRate2 convertToBO(ExchangeRateEntity exchangeRateEntity) {
+    public ExchangeRateInfo convertToBO(ExchangeRateEntity exchangeRateEntity) {
         if (exchangeRateEntity == null) {
             return null;
         }
-        ExchangeRate2 exchangeRate2 = new ExchangeRate2();
-        exchangeRate2.setFromCurrency(exchangeRateEntity.getFromCurrency());
-        exchangeRate2.setToCurrency(exchangeRateEntity.getToCurrency());
-        exchangeRate2.setRate(exchangeRateEntity.getRate());
+        ExchangeRateInfo exchangeRateInfo = new ExchangeRateInfo();
+        exchangeRateInfo.setFromCurrency(exchangeRateEntity.getFromCurrency());
+        exchangeRateInfo.setToCurrency(exchangeRateEntity.getToCurrency());
+        exchangeRateInfo.setRate(exchangeRateEntity.getRate());
 
-        return exchangeRate2;
+        return exchangeRateInfo;
     }
 
-    public ExchangeRateEntity convertToEntity(ExchangeRate2 exchangeRate2) {
-        if (exchangeRate2 == null) {
+    public ExchangeRateEntity convertToEntity(ExchangeRateInfo exchangeRateInfo) {
+        if (exchangeRateInfo == null) {
             return null;
         }
         ExchangeRateEntity exchangeRateEntity = new ExchangeRateEntity();
-        exchangeRateEntity.setFromCurrency(exchangeRate2.getFromCurrency());
-        exchangeRateEntity.setToCurrency(exchangeRate2.getToCurrency());
-        exchangeRateEntity.setRate(exchangeRate2.getRate());
+        exchangeRateEntity.setFromCurrency(exchangeRateInfo.getFromCurrency());
+        exchangeRateEntity.setToCurrency(exchangeRateInfo.getToCurrency());
+        exchangeRateEntity.setRate(exchangeRateInfo.getRate());
 
         return exchangeRateEntity;
     }
