@@ -4,6 +4,8 @@ import com.example.demo.entity.ExchangeRateEntity;
 import com.example.demo.models.ExchangeRateInfo;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
  * Created By sudhanshu.singh on 8/11/18
  */
@@ -30,6 +32,7 @@ public class ExchangeRateMapper {
         exchangeRateEntity.setFromCurrency(exchangeRateInfo.getFromCurrency());
         exchangeRateEntity.setToCurrency(exchangeRateInfo.getToCurrency());
         exchangeRateEntity.setRate(exchangeRateInfo.getRate());
+        exchangeRateEntity.setKnowledgeDate(new Date());
 
         return exchangeRateEntity;
     }
