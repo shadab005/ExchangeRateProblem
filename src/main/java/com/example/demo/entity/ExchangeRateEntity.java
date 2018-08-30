@@ -13,6 +13,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+@Table(name = "exchange_rate")
 public class ExchangeRateEntity {
 
     @Id
@@ -21,8 +22,10 @@ public class ExchangeRateEntity {
 
     private String batchId;
 
+    @Enumerated(EnumType.STRING)
     private Currency fromCurrency;
 
+    @Enumerated(EnumType.STRING)
     private Currency toCurrency;
 
     private Float rate;
