@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 import com.example.demo.entity.ExchangeRateEntity;
+import com.example.demo.job.step.ExchangeRateJobListener;
 import com.example.demo.models.ExchangeRateInfo;
 import org.springframework.batch.core.ItemProcessListener;
 import org.springframework.batch.core.Job;
@@ -12,6 +13,7 @@ import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +21,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class SpringBatchConfig {
+
+    @Autowired
+    private ExchangeRateJobListener exchangeRateJobListener;
 
     @Bean
     public Job job(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory,
@@ -36,6 +41,7 @@ public class SpringBatchConfig {
         return jobBuilderFactory.get("ETL-EC-Job")
                 .incrementer(new RunIdIncrementer())
                 .start(step)
+                .listener(exchangeRateJobListener)
                 .build();
 
     }

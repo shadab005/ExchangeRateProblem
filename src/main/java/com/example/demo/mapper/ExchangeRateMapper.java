@@ -24,7 +24,7 @@ public class ExchangeRateMapper {
         return exchangeRateInfo;
     }
 
-    public ExchangeRateEntity convertToEntity(ExchangeRateInfo exchangeRateInfo) {
+    public ExchangeRateEntity convertToEntity(ExchangeRateInfo exchangeRateInfo, String batchId) {
         if (exchangeRateInfo == null) {
             return null;
         }
@@ -33,6 +33,7 @@ public class ExchangeRateMapper {
         exchangeRateEntity.setToCurrency(exchangeRateInfo.getToCurrency());
         exchangeRateEntity.setRate(exchangeRateInfo.getRate());
         exchangeRateEntity.setKnowledgeDate(new Date());
+        exchangeRateEntity.setBatchId(batchId);
 
         return exchangeRateEntity;
     }

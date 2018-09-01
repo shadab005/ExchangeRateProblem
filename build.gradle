@@ -25,10 +25,15 @@ repositories {
 
 
 dependencies {
+
     runtime('mysql:mysql-connector-java')
     compile('org.springframework.boot:spring-boot-starter-web')
+    //spring batch dependency
     compile('org.springframework.boot:spring-boot-starter-batch')
+    //jpa dependency
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //rabbitmq dependency
+    compile("org.springframework.boot:spring-boot-starter-amqp")
 
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')

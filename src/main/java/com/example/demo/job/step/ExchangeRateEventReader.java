@@ -1,4 +1,4 @@
-package com.example.demo.reader;
+package com.example.demo.job.step;
 
 
 import com.example.demo.models.ExchangeRateInfo;
@@ -36,6 +36,5 @@ public class ExchangeRateEventReader extends FlatFileItemReader<ExchangeRateInfo
             }
         });
     }
-
 
 }
