@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
@@ -24,6 +27,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/workflow")
+@Api(description = "Set of endpoints for Creating & Retrieving the workflow.")
 public class Workflow {
 
     @GetMapping("/hello")
@@ -38,6 +42,7 @@ public class Workflow {
     private Job job;
 
     @GetMapping("/run")
+    @ApiOperation("start a workflow.")
     public BatchStatus run() throws Exception {
         System.out.println("Invoking the job");
 
