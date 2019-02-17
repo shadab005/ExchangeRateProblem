@@ -44,5 +44,8 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
+    //kafka
+    compile('org.springframework.kafka:spring-kafka')
+    //compile('org.apache.kafka:kafka-streams')
 
 }
